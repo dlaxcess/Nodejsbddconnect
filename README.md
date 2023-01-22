@@ -7,41 +7,73 @@ Connexion à une BDD et échanges de données depuis notre code JS avec PostgreS
 >[doc](https://www.postgresql.org/docs/current/index.html)
 
 ### connect to postrges
+```console
 sudo su postgres  
 psql
+```
 
 ### create user & database
+```console
 CREATE DATABASE oclockjspg;  
 CREATE USER filou WITH ENCRYPTED PASSWORD 'pass';
+```
 
+```console
 \du
+```
 
+```console
 GRANT ALL PRIVILEGES ON DATABASE oclockjspg TO filou;
+```
 
 ### connect database
+```console
 \c oclockjspg
+```
 
 ### create table and insert datas
+```console
 CREATE TABLE friends (id SERIAL PRIMARY KEY, first_name VARCHAR, last_name VARCHAR, country VARCHAR);
+```
 
+```console
 INSERT INTO friends (first_name, last_name, country) VALUES ('romeo', 'elvis', 'belgique');  
 INSERT INTO friends (first_name, last_name, country) VALUES ('aurel', 'san', 'france');  
+```
 
+```console
 \l
+```
 
+```console
 \dt
+```
 
+```console
 SELECT * FROM friends;
+```
 
+```console
 \q
+```
 
+```console
 exit
+```
 
 ---
 
 ## Init node project
+```console
 npm init -y
+```
 
 ---
 
+## Add index.js file & test node execution
+```console
+node index
+```
+
+---
 
