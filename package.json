@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/philperou/oclockjsbddconnect/issues"
   },
-  "homepage": "https://github.com/philperou/oclockjsbddconnect#readme"
+  "homepage": "https://github.com/philperou/oclockjsbddconnect#readme",
+  "dependencies": {
+    "pg": "^8.8.0"
+  }
 }

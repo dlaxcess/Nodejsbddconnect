@@ -4,7 +4,7 @@ Connexion à une BDD et échanges de données depuis notre code JS avec PostgreS
 ---
 
 ## Postgres
->[doc](https://www.postgresql.org/docs/current/index.html)
+>[Postgres doc](https://www.postgresql.org/docs/current/index.html)
 
 ### connect to postrges
 ```console
@@ -74,6 +74,19 @@ npm init -y
 ```console
 node index
 ```
+
+---
+
+## add pg dependencie & .gitignore
+>[npm packages](https://www.npmjs.com/)
+
+>[pg dependencie doc](https://node-postgres.com/)
+
+```console
+npm install pg
+```
+
+add .gitignore file to ignore node_modules folder
 
 ---
 
