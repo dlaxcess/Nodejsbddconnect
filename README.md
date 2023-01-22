@@ -35,5 +35,13 @@ SELECT * FROM friends;
 
 \q
 
+exit
+
 ---
+
+## Init node project
+npm init -y
+
+---
+
 

@@ -1,0 +1,20 @@
+{
+  "name": "oclockjsbddconnect",
+  "version": "1.0.0",
+  "description": "Connexion à une BDD et échanges de données depuis notre code JS avec PostgreSQL grâce à l'utilisation de Promise (2h)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/philperou/oclockjsbddconnect.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/philperou/oclockjsbddconnect/issues"
+  },
+  "homepage": "https://github.com/philperou/oclockjsbddconnect#readme"
+}
