@@ -174,3 +174,8 @@ npm install express --save
 ```
 
 ---
+
+## Little errors gesture
+errors 404 /500
+
+---
