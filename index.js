@@ -1,55 +1,32 @@
-import {createServer} from 'node:http'
+import express from 'express';
 
-// require('dotenv').config();
-import dotenv from 'dotenv'
-dotenv.config()
+import { fetch, fetchOne } from './src/services/database.js';
 
-// const {Client} = require('pg');
-import pg from 'pg';
-const {Client} = pg;
 
-console.log('oh yeaaah it works!!!');
+const app = express()
+const PORT = 8080
 
-const client = new Client({
-    host: "localhost",
-    user: process.env.PG_USER,
-    port: 5432,
-    password: process.env.PG_PASSWORD,
-    database: process.env.PG_DATABASE
-});
+app.get("/friends", async (req, res ) => {
+    let fetchResult = await fetch();
 
-client.connect();
+    console.log("fetchResult", fetchResult);
 
-const server = createServer(async (req, res) => {
-    // res.write('hello');
-    // res.end();
+    res.send(fetchResult);
+})
 
-    let output;
+app.get("/friends/:id", async (req, res) => {
+    const id = parseInt(req.params['id']);
+    const result = await fetchOne(id);
+    
+    console.log("result", result);
+    
+    res.send(result);
+})
 
-    try {
-        const response = await client.query('SELECT * FROM friends')
-        output = JSON.stringify(response.rows);
-    } catch(e) {
-        console.error(e.message);
-        output = e.message;
-    }
+app.get("/*", (_, res) => {
+    res.send('Oups : Page not found')
+})
 
-    res.write(output);
-    res.end();
-});
-
-server.listen('8080');
-
-const friends = //await
-client.query('select * from friends')
-    .then((res) => {
-        const fetchResult = res.rows;
-        console.log("fetchResult : ", fetchResult);
-
-        return fetchResult;
-    })
-    .catch(e => {
-        console.error(e.message);
-    });
-
-console.log("friends : ", friends);
+app.listen(PORT, () => {
+    console.log(`Listening on port ${PORT}`);
+})

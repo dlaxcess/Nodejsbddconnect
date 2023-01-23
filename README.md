@@ -163,3 +163,14 @@ node --watch index
 From .then to await
 
 ---
+
+## Use Express framework for server
+### install express
+>[express docs](https://expressjs.com/fr/starter/installing.html)
+
+>[express docs.io](https://devdocs.io/express/starter/installing)
+```console
+npm install express --save
+```
+
+---
