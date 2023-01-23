@@ -126,3 +126,8 @@ for the moment we use a callback function but we'll use Promises soon :)
 
 ---
 
+## Fetchin with very simple node server with Promise
+Try error gesture
+
+---
+
