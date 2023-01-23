@@ -20,11 +20,21 @@ const client = new Client({
 
 client.connect();
 
-client.query('SELECT * FROM friends', (err, res) => {
+// client.query('SELECT * FROM friends', (err, res) => {
+//     if(!err) {
+//         console.log(res.rows);
+//     } else {
+//         console.log("zut : " + err.message);
+//     }
+
+//     client.end();
+// })
+
+client.query('SELECT * FROM friends WHERE id = 2', (err, res) => {
     if(!err) {
-        console.log(res.rows);
+        console.log(res.rows[0]);
     } else {
-        console.log("zut : " + err.message);
+        console.log(err.message);
     }
 
     client.end();

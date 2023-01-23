@@ -117,3 +117,12 @@ add .env in .gitignore
 ```
 
 ---
+
+## Query database with 1 param
+```console
+client.query('SELECT * FROM friends WHERE id = 2', (err, res) => {}
+```
+for the moment we use a callback function but we'll use Promises soon :)
+
+---
+
