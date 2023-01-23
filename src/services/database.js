@@ -16,11 +16,15 @@ client.connect();
 
 
 export const fetch = async () => {
-    const stringResult = await client.query('select * from friends')
+    const stringResult = await client.query('select * from friends');
     return stringResult.rows;
 }
 
 export const fetchOne = async (id) => {
-    const res = await client.query('select * from friends where id= $1', [id])
+    const res = await client.query('select * from friends where id= $1', [id]);
     return res.rows[0];
+}
+
+export const addOne = async (firstName, lastName, country) => {
+    return client.query('INSERT INTO friends (first_name, last_name, country) VALUES ($1, $2, $3); ', [firstName, lastName, country]);
 }

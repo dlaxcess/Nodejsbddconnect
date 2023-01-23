@@ -179,3 +179,9 @@ npm install express --save
 errors 404 /500
 
 ---
+
+## Insert in database with html form
+__dirname functions
+
+---
+

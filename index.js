@@ -1,10 +1,26 @@
 import express from 'express';
 
-import { fetch, fetchOne } from './src/services/database.js';
+import { fileURLToPath } from 'node:url';
+import { dirname, join } from 'node:path';
+
+import { fetch, fetchOne, addOne } from './src/services/database.js';
+
+const app = express();
+const PORT = 8080;
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
+// console.log("__dirname", __dirname)
+const indexHtml = join(__dirname, 'src/html/index.html');
+// console.log("indexHtml", indexHtml)
 
 
-const app = express()
-const PORT = 8080
+app.get("/", (req, res) => {
+    try {
+       res.sendFile(indexHtml);
+    } catch(err) {
+       res.status(500).send(`Mnnnhhh... bad : ${err.message}`);
+    }
+})
 
 app.get("/friends", async (req, res) => {
     try {
@@ -20,7 +36,7 @@ app.get("/friends", async (req, res) => {
 
 app.get("/friends/:id", async (req, res, next) => {
     try {
-        const id = parseInt(req.params['id']);
+        const id = parseInt(req.params.id);
         const result = await fetchOne(id);
         
         console.log("result", result);
@@ -29,6 +45,13 @@ app.get("/friends/:id", async (req, res, next) => {
     } catch(err) {
         next(err);
     }
+})
+
+app.get("/add", async (req, res) => {
+    const query = req.query;
+    
+    await addOne(query.fname, query.lname, query.country);
+    res.send("Amis ajouté, c'est toujours bon d'ajouter un ami :)");
 })
 
 app.get("/*", (_, res) => {
