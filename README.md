@@ -16,6 +16,8 @@ psql
 ```console
 CREATE DATABASE oclockjspg;  
 CREATE USER filou WITH ENCRYPTED PASSWORD 'pass';
+## ALTER USER filou WITH SUPERUSER
+
 ```
 
 ```console
@@ -24,6 +26,7 @@ CREATE USER filou WITH ENCRYPTED PASSWORD 'pass';
 
 ```console
 GRANT ALL PRIVILEGES ON DATABASE oclockjspg TO filou;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO filou;
 ```
 
 ### connect database
@@ -77,7 +80,7 @@ node index
 
 ---
 
-## add pg dependencie & .gitignore
+## Add pg dependencie & .gitignore
 >[npm packages](https://www.npmjs.com/)
 
 >[pg dependencie doc](https://node-postgres.com/)
@@ -90,3 +93,27 @@ add .gitignore file to ignore node_modules folder
 
 ---
 
+## First database fetch
+### install dotenv dependencie to hide sensible datas
+>[dotenv doc](https://github.com/motdotla/dotenv)
+
+```console
+npm install dotenv --save
+```
+
+### create .env file with postgreSQL user parameters
+```console
+PG_USER="filou"
+PG_PASSWORD="pass"
+PG_DATABASE="oclockjspg"
+```
+
+add .env in .gitignore
+
+### add module type in package.json
+```console
+"type": "module",
+## permit ES6 import
+```
+
+---

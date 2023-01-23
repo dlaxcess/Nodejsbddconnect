@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/philperou/oclockjsbddconnect.git"
@@ -18,6 +19,7 @@
   },
   "homepage": "https://github.com/philperou/oclockjsbddconnect#readme",
   "dependencies": {
+    "dotenv": "^16.0.3",
     "pg": "^8.8.0"
   }
 }
