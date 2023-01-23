@@ -4,6 +4,7 @@
   "description": "Connexion à une BDD et échanges de données depuis notre code JS avec PostgreSQL grâce à l'utilisation de Promise (2h)",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "type": "module",
@@ -21,5 +22,8 @@
   "dependencies": {
     "dotenv": "^16.0.3",
     "pg": "^8.8.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
   }
 }

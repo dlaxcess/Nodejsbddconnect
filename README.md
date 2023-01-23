@@ -131,3 +131,28 @@ Try error gesture
 
 ---
 
+## Install nodemon (watcher)
+### install nodemon
+>[nodemon doc](https://www.npmjs.com/package/nodemon)
+```console
+npm install --save-dev nodemon
+
+##ou
+
+npm install -D nodemon
+```
+
+### run index.js with nodemon
+```console
+## "nodemon index" not working
+npx nodemon index
+```
+
+```console
+## ou bien script créer le script : 
+"dev": "nodemon index",
+
+## Can use since node 18^
+node --watch index
+```
+---
