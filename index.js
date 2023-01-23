@@ -39,3 +39,17 @@ const server = createServer(async (req, res) => {
 });
 
 server.listen('8080');
+
+const friends = //await
+client.query('select * from friends')
+    .then((res) => {
+        const fetchResult = res.rows;
+        console.log("fetchResult : ", fetchResult);
+
+        return fetchResult;
+    })
+    .catch(e => {
+        console.error(e.message);
+    });
+
+console.log("friends : ", friends);

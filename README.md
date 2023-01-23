@@ -129,6 +129,8 @@ for the moment we use a callback function but we'll use Promises soon :)
 ## Fetchin with very simple node server with Promise
 Try error gesture
 
+cf More Promise explainations commit
+
 ---
 
 ## Install nodemon (watcher)
@@ -155,4 +157,9 @@ npx nodemon index
 ## Can use since node 18^
 node --watch index
 ```
+---
+
+## More Promise explainations
+From .then to await
+
 ---
