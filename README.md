@@ -185,3 +185,32 @@ __dirname functions
 
 ---
 
+## Insert in database fetching with front js file
+### acces to statics files with
+```console
+## import this
+import { fileURLToPath } from 'node:url';
+import { dirname, join } from 'node:path';
+
+## define __dirname
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const staticsPath = join(__dirname, 'src/statics');
+
+
+## add it with app.use
+app.use("/src/statics", express.static(staticsPath));
+```
+
+### use body-parser dependencie to acces request body
+>[body-parser](https://www.npmjs.com/package/body-parser)
+
+```console
+npm install body-parser
+
+## add it with app.use
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
+```
+
+---

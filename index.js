@@ -1,4 +1,5 @@
 import express from 'express';
+import bodyParser from "body-parser";
 
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
@@ -8,10 +9,14 @@ import { fetch, fetchOne, addOne } from './src/services/database.js';
 const app = express();
 const PORT = 8080;
 
-const __dirname = dirname(fileURLToPath(import.meta.url))
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 // console.log("__dirname", __dirname)
 const indexHtml = join(__dirname, 'src/html/index.html');
 // console.log("indexHtml", indexHtml)
+const staticsPath = join(__dirname, 'src/statics');
 
 
 app.get("/", (req, res) => {
@@ -53,6 +58,17 @@ app.get("/add", async (req, res) => {
     await addOne(query.fname, query.lname, query.country);
     res.send("Amis ajouté, c'est toujours bon d'ajouter un ami :)");
 })
+
+app.post("/addfriend", async (req, res) => {
+    const body = req.body;
+    await addOne(body.fname, body.lname, body.country);
+
+    console.log("app.post ~ body", body)
+
+    res.status(200).send("Amis ajouté, c'est toujours bon d'ajouter un ami :)");
+})
+
+app.use("/src/statics", express.static(staticsPath));
 
 app.get("/*", (_, res) => {
     res.status(404).send('Oups : Page not found');
