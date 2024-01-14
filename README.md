@@ -1,5 +1,7 @@
 # oclockjsbddconnect
 Connexion à une BDD et échanges de données depuis notre code JS avec PostgreSQL grâce à l'utilisation de Promise (2h)
+  
+source: [https://grafikart.fr/tutoriels/javascript-server-nodejs-2080#autoplay](https://grafikart.fr/tutoriels/javascript-server-nodejs-2080#autoplay)
 
 ---
 
